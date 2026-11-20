@@ -13,7 +13,11 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.syntellum\.si$ [NC]
 RewriteRule ^(.*)$ https://syntellum.si/$1 [L,R=301]
 
-# 3. Allow Direct Access to PHP Endpoint and Existing Static Files/Directories
+# 3. Canonicalize Trailing Slashes (strip trailing slash on non-directory routes)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ https://%{HTTP_HOST}/$1 [L,R=301]
+
+# 4. Allow Direct Access to PHP Endpoint and Existing Static Files/Directories
 RewriteCond %{REQUEST_URI} ^/contact\.php$ [NC]
 RewriteRule ^contact\.php$ - [L]
 
@@ -21,7 +25,11 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# 4. SPA Fallback to index.html for Clean Routes
+# 5. Serve Pre-rendered Route SEO Snapshots Directly (HTTP 200, No Redirect)
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+# 6. SPA Fallback to index.html for Dynamic/404 Routes
 RewriteRule ^ index.html [L]
 
 # ==============================================================================
@@ -36,14 +44,23 @@ RewriteRule ^ index.html [L]
 </IfModule>
 
 # ==============================================================================
+# Compression (Core Web Vitals / Faster First Contentful Paint)
+# ==============================================================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# ==============================================================================
 # Browser Caching & Performance
 # ==============================================================================
 <IfModule mod_expires.c>
     ExpiresActive On
     ExpiresDefault "access plus 1 month"
     
-    # HTML must always revalidate
+    # HTML and XML sitemaps must always revalidate
     ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType application/xml "access plus 1 hour"
+    ExpiresByType text/xml "access plus 1 hour"
     
     # CSS and JavaScript (fingerprinted assets)
     ExpiresByType text/css "access plus 1 year"

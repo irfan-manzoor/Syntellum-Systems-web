@@ -1,75 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://syntellum.si/</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://syntellum.si/assets/images/hero_systems_architecture_1793879195919.jpg</image:loc>
+      <image:title>Syntellum Systems | Enterprise AI Advisory &amp; Engineering</image:title>
+      <image:caption>Syntellum Systems enterprise AI architecture and technology advisory infrastructure</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://syntellum.si/what-we-do</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://syntellum.si/assets/images/backgrounds/6_blueprint-to-execution_d2a87b42.jpg</image:loc>
+      <image:title>Enterprise AI &amp; Technology Services | Syntellum Systems</image:title>
+      <image:caption>Syntellum Systems five enterprise AI and technology capability pillars</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://syntellum.si/services/ai-technology-advisory</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://syntellum.si/assets/images/backgrounds/2_architecture-of-decisions_c931c652.jpg</image:loc>
+      <image:title>AI &amp; Technology Advisory | Syntellum Systems</image:title>
+      <image:caption>AI opportunity assessment, enterprise architecture blueprints, and governance design</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://syntellum.si/services/generative-applied-ai</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://syntellum.si/assets/images/backgrounds/3_the-intelligence-field-1_65f9899b.jpg</image:loc>
+      <image:title>Generative AI &amp; Enterprise LLMs | Syntellum Systems</image:title>
+      <image:caption>Enterprise RAG knowledge pipelines and multi-agent AI orchestration</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://syntellum.si/services/ai-data-engineering</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://syntellum.si/assets/images/cloud_native_engineering_1793879197288.jpg</image:loc>
+      <image:title>AI, Data &amp; Software Engineering | Syntellum Systems</image:title>
+      <image:caption>Cloud-native backend engineering, streaming data platforms, and MLOps infrastructure</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://syntellum.si/services/intelligent-operations</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://syntellum.si/assets/images/enterprise_operations_workflow_1793879196295.jpg</image:loc>
+      <image:title>Intelligent Operations &amp; Automation | Syntellum Systems</image:title>
+      <image:caption>Automated ERP/CRM integration and operational workflow orchestration</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://syntellum.si/services/technology-resource-augmentation</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://syntellum.si/assets/images/backgrounds/5_intelligence-at-work_c29801d7.jpg</image:loc>
+      <image:title>Technology Resource Augmentation | Syntellum Systems</image:title>
+      <image:caption>Senior AI engineering squads and fractional architecture leadership</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://syntellum.si/industries</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://syntellum.si/assets/images/backgrounds/4_systems-in-depth_7ab74aab.jpg</image:loc>
+      <image:title>Target Industries &amp; Domains | Syntellum Systems</image:title>
+      <image:caption>Industry-specific AI systems for manufacturing, logistics, finance, and SaaS</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://syntellum.si/approach</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://syntellum.si/assets/images/backgrounds/8_abstract-systems-architecture_6b645614.jpg</image:loc>
+      <image:title>Delivery Lifecycle &amp; Approach | Syntellum Systems</image:title>
+      <image:caption>Six-stage enterprise AI architecture and delivery methodology</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://syntellum.si/about</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://syntellum.si/assets/images/backgrounds/1_intelligence-in-motion_hero-page_0c81c193.jpg</image:loc>
+      <image:title>About Syntellum Systems | Practice &amp; Purpose</image:title>
+      <image:caption>Syntellum Systems enterprise advisory and engineering practice</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://syntellum.si/security</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://syntellum.si/assets/images/backgrounds/7_signal-in-the-dark_8fc55d09.jpg</image:loc>
+      <image:title>Enterprise Security &amp; Governance | Syntellum Systems</image:title>
+      <image:caption>Zero-retention VPC isolation, RBAC, and AI governance controls</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://syntellum.si/contact</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://syntellum.si/assets/images/hero_systems_architecture_1793879195919.jpg</image:loc>
+      <image:title>Discuss an AI Project | Contact Syntellum Systems</image:title>
+      <image:caption>Contact Syntellum Systems for enterprise AI and architecture engagements</image:caption>
+    </image:image>
   </url>
 </urlset>

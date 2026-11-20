@@ -26,31 +26,34 @@ function AppContent() {
     updateDocumentSEO(pathname);
   }, [pathname]);
 
-  // Route routing logic
+  // Route routing logic (normalize trailing slashes for canonical SEO routing)
   const renderRoute = () => {
-    if (pathname === '/' || pathname === '') {
+    const normalizedPath =
+      pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname;
+
+    if (normalizedPath === '/' || normalizedPath === '') {
       return <HomePage />;
     }
-    if (pathname === '/what-we-do' || pathname === '/services') {
+    if (normalizedPath === '/what-we-do' || normalizedPath === '/services') {
       return <WhatWeDoPage />;
     }
-    if (pathname.startsWith('/services/')) {
-      const slug = pathname.replace('/services/', '').replace(/\/$/, '');
+    if (normalizedPath.startsWith('/services/')) {
+      const slug = normalizedPath.replace('/services/', '').replace(/\/$/, '');
       return <CapabilityDetailPage slug={slug} />;
     }
-    if (pathname === '/industries') {
+    if (normalizedPath === '/industries') {
       return <IndustriesPage />;
     }
-    if (pathname === '/approach') {
+    if (normalizedPath === '/approach') {
       return <ApproachPage />;
     }
-    if (pathname === '/about') {
+    if (normalizedPath === '/about') {
       return <AboutPage />;
     }
-    if (pathname === '/security') {
+    if (normalizedPath === '/security') {
       return <SecurityPage />;
     }
-    if (pathname === '/contact') {
+    if (normalizedPath === '/contact') {
       return <ContactPage />;
     }
     return <NotFoundPage />;

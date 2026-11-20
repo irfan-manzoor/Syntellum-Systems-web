@@ -1,0 +1,220 @@
+{
+  "baseUrl": "https://syntellum.si",
+  "siteName": "Syntellum Systems",
+  "defaultImage": "/assets/images/hero_systems_architecture_1793879195919.jpg",
+  "routes": [
+    {
+      "path": "/",
+      "title": "Syntellum Systems | Enterprise AI Advisory & Engineering",
+      "description": "Partner with Syntellum Systems for enterprise AI advisory, applied LLMs, data platforms, and resilient software engineering built to scale.",
+      "ogType": "website",
+      "schemaType": "WebPage",
+      "image": "/assets/images/hero_systems_architecture_1793879195919.jpg",
+      "imageCaption": "Syntellum Systems enterprise AI architecture and technology advisory infrastructure",
+      "changefreq": "weekly",
+      "priority": "1.0",
+      "h1": "Engineering Intelligence. Transforming Operations.",
+      "summary": "Syntellum Systems connects strategic technology advisory with deep engineering execution—building resilient systems, applied AI, and scalable enterprise platforms.",
+      "breadcrumbs": [
+        { "name": "Home", "path": "/" }
+      ]
+    },
+    {
+      "path": "/what-we-do",
+      "title": "Enterprise AI & Technology Services | Syntellum Systems",
+      "description": "Explore Syntellum Systems capabilities across strategic AI advisory, generative AI, data engineering, automation, and senior talent squads.",
+      "ogType": "website",
+      "schemaType": "CollectionPage",
+      "image": "/assets/images/backgrounds/6_blueprint-to-execution_d2a87b42.jpg",
+      "imageCaption": "Syntellum Systems five enterprise AI and technology capability pillars",
+      "changefreq": "weekly",
+      "priority": "0.9",
+      "h1": "Enterprise AI & Technology Capabilities",
+      "summary": "Advisory, applied generative AI, data platform engineering, intelligent operational automation, and embedded specialist delivery squads.",
+      "breadcrumbs": [
+        { "name": "Home", "path": "/" },
+        { "name": "What We Do", "path": "/what-we-do" }
+      ]
+    },
+    {
+      "path": "/services/ai-technology-advisory",
+      "title": "AI & Technology Advisory | Syntellum Systems",
+      "description": "Align executive strategy with enterprise AI readiness audits, cloud architecture blueprints, vendor due diligence, and governance frameworks.",
+      "ogType": "article",
+      "schemaType": "Service",
+      "serviceType": "AI & Technology Advisory",
+      "image": "/assets/images/backgrounds/2_architecture-of-decisions_c931c652.jpg",
+      "imageCaption": "AI opportunity assessment, enterprise architecture blueprints, and governance design",
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "h1": "AI & Technology Advisory",
+      "summary": "Translating strategic business priorities into clear architecture, investment clarity, and executable technology roadmaps.",
+      "breadcrumbs": [
+        { "name": "Home", "path": "/" },
+        { "name": "What We Do", "path": "/what-we-do" },
+        { "name": "AI & Technology Advisory", "path": "/services/ai-technology-advisory" }
+      ]
+    },
+    {
+      "path": "/services/generative-applied-ai",
+      "title": "Generative AI & Enterprise LLMs | Syntellum Systems",
+      "description": "Deploy production RAG assistants, multi-agent workflows, and intelligent document extraction engineered with strict human-in-the-loop controls.",
+      "ogType": "article",
+      "schemaType": "Service",
+      "serviceType": "Generative AI & Applied AI",
+      "image": "/assets/images/backgrounds/3_the-intelligence-field-1_65f9899b.jpg",
+      "imageCaption": "Enterprise RAG knowledge pipelines and multi-agent AI orchestration",
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "h1": "Generative AI & Applied AI",
+      "summary": "Production-grade enterprise LLM systems, retrieval-augmented generation, and governed agentic workflows.",
+      "breadcrumbs": [
+        { "name": "Home", "path": "/" },
+        { "name": "What We Do", "path": "/what-we-do" },
+        { "name": "Generative AI & Applied AI", "path": "/services/generative-applied-ai" }
+      ]
+    },
+    {
+      "path": "/services/ai-data-engineering",
+      "title": "AI, Data & Software Engineering | Syntellum Systems",
+      "description": "Architect cloud backends, streaming lakehouses, high-throughput APIs, and automated MLOps and LLMOps pipelines designed for enterprise scale.",
+      "ogType": "article",
+      "schemaType": "Service",
+      "serviceType": "AI, Data & Software Engineering",
+      "image": "/assets/images/cloud_native_engineering_1793879197288.jpg",
+      "imageCaption": "Cloud-native backend engineering, streaming data platforms, and MLOps infrastructure",
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "h1": "AI, Data & Software Engineering",
+      "summary": "Resilient cloud backends, modern data lakehouses, high-throughput microservices, and automated MLOps/LLMOps pipelines.",
+      "breadcrumbs": [
+        { "name": "Home", "path": "/" },
+        { "name": "What We Do", "path": "/what-we-do" },
+        { "name": "AI, Data & Software Engineering", "path": "/services/ai-data-engineering" }
+      ]
+    },
+    {
+      "path": "/services/intelligent-operations",
+      "title": "Intelligent Operations & Automation | Syntellum Systems",
+      "description": "Automate industrial RFQ parsing, invoice reconciliation, and cross-platform ERP and CRM workflows with measurable operational throughput.",
+      "ogType": "article",
+      "schemaType": "Service",
+      "serviceType": "Intelligent Operations & Automation",
+      "image": "/assets/images/enterprise_operations_workflow_1793879196295.jpg",
+      "imageCaption": "Automated ERP/CRM integration and operational workflow orchestration",
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "h1": "Intelligent Operations & Automation",
+      "summary": "Eliminating manual operational bottlenecks through intelligent workflow automation and unified enterprise system orchestration.",
+      "breadcrumbs": [
+        { "name": "Home", "path": "/" },
+        { "name": "What We Do", "path": "/what-we-do" },
+        { "name": "Intelligent Operations & Automation", "path": "/services/intelligent-operations" }
+      ]
+    },
+    {
+      "path": "/services/technology-resource-augmentation",
+      "title": "Technology Resource Augmentation | Syntellum Systems",
+      "description": "Accelerate delivery velocity with embedded senior AI engineers, data platform architects, and fractional technical leadership from Syntellum.",
+      "ogType": "article",
+      "schemaType": "Service",
+      "serviceType": "Technology Resource Augmentation",
+      "image": "/assets/images/backgrounds/5_intelligence-at-work_c29801d7.jpg",
+      "imageCaption": "Senior AI engineering squads and fractional architecture leadership",
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "h1": "Technology Resource Augmentation",
+      "summary": "Extending client engineering capacity with senior AI/ML engineers, data architects, and fractional technical leadership.",
+      "breadcrumbs": [
+        { "name": "Home", "path": "/" },
+        { "name": "What We Do", "path": "/what-we-do" },
+        { "name": "Technology Resource Augmentation", "path": "/services/technology-resource-augmentation" }
+      ]
+    },
+    {
+      "path": "/industries",
+      "title": "Target Industries & Domains | Syntellum Systems",
+      "description": "Discover tailored AI and enterprise architecture for manufacturing, logistics, financial services, software companies, and shared operations.",
+      "ogType": "website",
+      "schemaType": "CollectionPage",
+      "image": "/assets/images/backgrounds/4_systems-in-depth_7ab74aab.jpg",
+      "imageCaption": "Industry-specific AI systems for manufacturing, logistics, finance, and SaaS",
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "h1": "Target Problem Domains & Industries",
+      "summary": "Domain-tailored AI architectures for manufacturing, global logistics, financial services, software platforms, and shared enterprise operations.",
+      "breadcrumbs": [
+        { "name": "Home", "path": "/" },
+        { "name": "Industries", "path": "/industries" }
+      ]
+    },
+    {
+      "path": "/approach",
+      "title": "Delivery Lifecycle & Approach | Syntellum Systems",
+      "description": "See our six-stage engineering lifecycle from discovery and feasibility modeling through architecture, deployment, and capability transfer.",
+      "ogType": "website",
+      "schemaType": "WebPage",
+      "image": "/assets/images/backgrounds/8_abstract-systems-architecture_6b645614.jpg",
+      "imageCaption": "Six-stage enterprise AI architecture and delivery methodology",
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "h1": "Delivery Lifecycle & Approach",
+      "summary": "A disciplined six-stage engineering lifecycle moving seamlessly from discovery and feasibility modeling to production deployment and knowledge transfer.",
+      "breadcrumbs": [
+        { "name": "Home", "path": "/" },
+        { "name": "Approach", "path": "/approach" }
+      ]
+    },
+    {
+      "path": "/about",
+      "title": "About Syntellum Systems | Practice & Purpose",
+      "description": "Learn about Syntellum Systems, our senior engineering operating model, architecture-first standards, and global enterprise delivery practice.",
+      "ogType": "website",
+      "schemaType": "AboutPage",
+      "image": "/assets/images/backgrounds/1_intelligence-in-motion_hero-page_0c81c193.jpg",
+      "imageCaption": "Syntellum Systems enterprise advisory and engineering practice",
+      "changefreq": "monthly",
+      "priority": "0.75",
+      "h1": "About Our Practice & Purpose",
+      "summary": "Built around senior architectural rigor and deep engineering execution to turn technology strategy into durable enterprise advantage.",
+      "breadcrumbs": [
+        { "name": "Home", "path": "/" },
+        { "name": "About", "path": "/about" }
+      ]
+    },
+    {
+      "path": "/security",
+      "title": "Enterprise Security & Governance | Syntellum Systems",
+      "description": "Review our privacy-by-design architecture, client VPC isolation, least-privilege RBAC access controls, and strict AI governance safeguards.",
+      "ogType": "website",
+      "schemaType": "WebPage",
+      "image": "/assets/images/backgrounds/7_signal-in-the-dark_8fc55d09.jpg",
+      "imageCaption": "Zero-retention VPC isolation, RBAC, and AI governance controls",
+      "changefreq": "monthly",
+      "priority": "0.75",
+      "h1": "Security, Privacy & Governance",
+      "summary": "Privacy-by-design architectures engineered with client VPC isolation, least-privilege RBAC controls, and human-in-the-loop AI governance.",
+      "breadcrumbs": [
+        { "name": "Home", "path": "/" },
+        { "name": "Security", "path": "/security" }
+      ]
+    },
+    {
+      "path": "/contact",
+      "title": "Discuss an AI Project | Contact Syntellum Systems",
+      "description": "Start a confidential technical consultation with Syntellum Systems. Share your project brief or architecture goals with our leadership team.",
+      "ogType": "website",
+      "schemaType": "ContactPage",
+      "image": "/assets/images/hero_systems_architecture_1793879195919.jpg",
+      "imageCaption": "Contact Syntellum Systems for enterprise AI and architecture engagements",
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "h1": "Discuss a Project",
+      "summary": "Submit your project brief or technical challenge for direct review by Syntellum Systems practice leadership.",
+      "breadcrumbs": [
+        { "name": "Home", "path": "/" },
+        { "name": "Contact", "path": "/contact" }
+      ]
+    }
+  ]
+}

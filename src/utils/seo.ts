@@ -1,103 +1,132 @@
+import seoConfig from '../data/seoRoutes.json';
+
+export interface BreadcrumbItem {
+  name: string;
+  path: string;
+}
+
 export interface PageMetadata {
   title: string;
   description: string;
   path: string;
   ogType?: string;
+  schemaType?: string;
+  serviceType?: string;
+  image?: string;
+  imageCaption?: string;
+  noindex?: boolean;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
-export const ROUTE_METADATA: Record<string, PageMetadata> = {
-  '/': {
-    title: 'Syntellum Systems | AI & Technology Advisory and Engineering',
-    description: 'Syntellum Systems advises executive leadership, architects intelligent systems, and engineers scalable enterprise software and data platforms.',
-    path: '/',
-    ogType: 'website',
-  },
-  '/what-we-do': {
-    title: 'Enterprise AI & Technology Capabilities | Syntellum Systems',
-    description: 'Explore our 5 core capability pillars: strategic AI advisory, generative AI systems, data engineering, process automation, and talent augmentation.',
-    path: '/what-we-do',
-    ogType: 'website',
-  },
-  '/services': {
-    title: 'Enterprise AI & Technology Capabilities | Syntellum Systems',
-    description: 'Explore our 5 core capability pillars: strategic AI advisory, generative AI systems, data engineering, process automation, and talent augmentation.',
-    path: '/what-we-do',
-    ogType: 'website',
-  },
-  '/services/ai-technology-advisory': {
-    title: 'AI & Technology Advisory | Syntellum Systems',
-    description: 'Strategic AI opportunity assessment, enterprise architecture blueprints, technical due diligence, and executive roadmap advisory.',
-    path: '/services/ai-technology-advisory',
-    ogType: 'article',
-  },
-  '/services/generative-applied-ai': {
-    title: 'Generative AI & Enterprise LLMs | Syntellum Systems',
-    description: 'Enterprise RAG knowledge assistants, multi-agent workflows, and document intelligence engineered with human-in-the-loop controls.',
-    path: '/services/generative-applied-ai',
-    ogType: 'article',
-  },
-  '/services/ai-data-engineering': {
-    title: 'AI, Data & Software Engineering | Syntellum Systems',
-    description: 'Resilient cloud backends, streaming lakehouses, high-throughput microservices, and automated MLOps/LLMOps pipelines.',
-    path: '/services/ai-data-engineering',
-    ogType: 'article',
-  },
-  '/services/intelligent-operations': {
-    title: 'Intelligent Operations & Automation | Syntellum Systems',
-    description: 'Automate industrial RFQ processing, invoice reconciliation, and cross-platform ERP/CRM workflows with measurable throughput.',
-    path: '/services/intelligent-operations',
-    ogType: 'article',
-  },
-  '/services/technology-resource-augmentation': {
-    title: 'Technology Resource Augmentation | Syntellum Systems',
-    description: 'Accelerate roadmap velocity with senior, pre-vetted AI/ML engineers, data platform architects, and fractional technical leaders.',
-    path: '/services/technology-resource-augmentation',
-    ogType: 'article',
-  },
-  '/industries': {
-    title: 'Target Problem Domains & Industries | Syntellum Systems',
-    description: 'Tailored architecture for manufacturing, logistics, financial services, software companies, and enterprise shared operations.',
-    path: '/industries',
-    ogType: 'website',
-  },
-  '/approach': {
-    title: 'Delivery Lifecycle & Approach | Syntellum Systems',
-    description: 'A disciplined 6-stage lifecycle from discovery and feasibility modeling through architecture, engineering, and knowledge transfer.',
-    path: '/approach',
-    ogType: 'website',
-  },
-  '/about': {
-    title: 'About Our Practice & Purpose | Syntellum Systems',
-    description: 'Learn about our purpose, operating model, enterprise architecture practice, and senior engineering delivery capabilities.',
-    path: '/about',
-    ogType: 'website',
-  },
-  '/security': {
-    title: 'Security, Privacy & Governance | Syntellum Systems',
-    description: 'Privacy-aware architecture, client VPC isolation, least-privilege RBAC, and strict human-in-the-loop governance safeguards.',
-    path: '/security',
-    ogType: 'website',
-  },
-  '/contact': {
-    title: 'Discuss a Project | Syntellum Systems',
-    description: 'Submit your project brief or technical challenge for direct review by Syntellum Systems practice leadership. Reach us at info@syntellum.si.',
-    path: '/contact',
-    ogType: 'website',
-  },
+export const SITE_BASE_URL = seoConfig.baseUrl;
+export const DEFAULT_OG_IMAGE = seoConfig.defaultImage;
+
+export const ROUTE_METADATA: Record<string, PageMetadata> = {};
+
+for (const route of seoConfig.routes) {
+  ROUTE_METADATA[route.path] = {
+    title: route.title,
+    description: route.description,
+    path: route.path,
+    ogType: route.ogType,
+    schemaType: route.schemaType,
+    serviceType: route.serviceType,
+    image: route.image,
+    imageCaption: route.imageCaption,
+    breadcrumbs: route.breadcrumbs,
+  };
+}
+
+// Alias /services -> canonical /what-we-do
+ROUTE_METADATA['/services'] = {
+  ...ROUTE_METADATA['/what-we-do'],
 };
 
 export const NOT_FOUND_METADATA: PageMetadata = {
   title: 'Page Not Located | Syntellum Systems',
-  description: 'The requested system route does not exist. Return to the Syntellum Systems homepage to explore our capabilities.',
+  description: 'The requested page could not be located. Explore Syntellum Systems enterprise AI advisory, engineering, and automation capabilities.',
   path: '/404',
   ogType: 'website',
+  image: DEFAULT_OG_IMAGE,
+  imageCaption: 'Syntellum Systems enterprise AI and engineering platform',
+  noindex: true,
 };
+
+function resolveOrigin(): string {
+  if (typeof window === 'undefined') return SITE_BASE_URL;
+  const { hostname, origin } = window.location;
+  if (hostname === 'syntellum.si' || hostname === 'www.syntellum.si') {
+    return SITE_BASE_URL;
+  }
+  return origin || SITE_BASE_URL;
+}
+
+function buildRouteJsonLd(meta: PageMetadata, origin: string, canonicalUrl: string): Record<string, unknown> {
+  const graph: Record<string, unknown>[] = [];
+
+  if (meta.breadcrumbs && meta.breadcrumbs.length > 0) {
+    graph.push({
+      '@type': 'BreadcrumbList',
+      itemListElement: meta.breadcrumbs.map((crumb, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: crumb.name,
+        item: `${origin}${crumb.path === '/' ? '/' : crumb.path}`,
+      })),
+    });
+  }
+
+  const imageUrl = `${origin}${meta.image || DEFAULT_OG_IMAGE}`;
+
+  if (meta.schemaType === 'Service') {
+    graph.push({
+      '@type': 'Service',
+      '@id': `${canonicalUrl}#service`,
+      name: meta.serviceType || meta.title,
+      serviceType: meta.serviceType || meta.title,
+      description: meta.description,
+      url: canonicalUrl,
+      image: imageUrl,
+      areaServed: {
+        '@type': 'Place',
+        name: 'Global',
+      },
+      provider: {
+        '@id': `${SITE_BASE_URL}/#organization`,
+      },
+    });
+  } else {
+    graph.push({
+      '@type': meta.schemaType || 'WebPage',
+      '@id': `${canonicalUrl}#webpage`,
+      url: canonicalUrl,
+      name: meta.title,
+      description: meta.description,
+      primaryImageOfPage: {
+        '@type': 'ImageObject',
+        url: imageUrl,
+      },
+      isPartOf: {
+        '@id': `${SITE_BASE_URL}/#website`,
+      },
+    });
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': graph,
+  };
+}
 
 export function updateDocumentSEO(pathname: string): void {
   if (typeof document === 'undefined') return;
 
   const normalizedPath = pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname;
   const meta = ROUTE_METADATA[normalizedPath] || NOT_FOUND_METADATA;
+  const origin = resolveOrigin();
+  const canonicalPath = meta.path === '/404' ? (normalizedPath || '/') : (meta.path === '/' ? '/' : meta.path);
+  const canonicalUrl = `${origin}${canonicalPath}`;
+  const imageUrl = `${origin}${meta.image || DEFAULT_OG_IMAGE}`;
 
   // 1. Update <title>
   document.title = meta.title;
@@ -112,25 +141,55 @@ export function updateDocumentSEO(pathname: string): void {
     el.setAttribute('content', contentVal);
   };
 
-  // 2. Standard Meta Description
+  // 2. Robots Directive (prevent soft-404 indexing)
+  setOrCreateMeta(
+    'meta[name="robots"]',
+    'name',
+    'robots',
+    meta.noindex
+      ? 'noindex, nofollow'
+      : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+  );
+
+  // 3. Standard Meta Description
   setOrCreateMeta('meta[name="description"]', 'name', 'description', meta.description);
 
-  // 3. OpenGraph Tags
+  // 4. OpenGraph Tags
   setOrCreateMeta('meta[property="og:title"]', 'property', 'og:title', meta.title);
   setOrCreateMeta('meta[property="og:description"]', 'property', 'og:description', meta.description);
   setOrCreateMeta('meta[property="og:type"]', 'property', 'og:type', meta.ogType || 'website');
-  setOrCreateMeta('meta[property="og:url"]', 'property', 'og:url', `https://syntellum.si${meta.path === '/404' ? '' : meta.path}`);
+  setOrCreateMeta('meta[property="og:url"]', 'property', 'og:url', canonicalUrl);
+  setOrCreateMeta('meta[property="og:image"]', 'property', 'og:image', imageUrl);
+  setOrCreateMeta('meta[property="og:image:alt"]', 'property', 'og:image:alt', meta.imageCaption || meta.title);
 
-  // 4. Twitter Tags
+  // 5. Twitter Cards
+  setOrCreateMeta('meta[name="twitter:card"]', 'name', 'twitter:card', 'summary_large_image');
   setOrCreateMeta('meta[name="twitter:title"]', 'name', 'twitter:title', meta.title);
   setOrCreateMeta('meta[name="twitter:description"]', 'name', 'twitter:description', meta.description);
+  setOrCreateMeta('meta[name="twitter:image"]', 'name', 'twitter:image', imageUrl);
+  setOrCreateMeta('meta[name="twitter:image:alt"]', 'name', 'twitter:image:alt', meta.imageCaption || meta.title);
 
-  // 5. Canonical Link
+  // 6. Canonical Link
   let canonicalEl = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
   if (!canonicalEl) {
     canonicalEl = document.createElement('link');
     canonicalEl.setAttribute('rel', 'canonical');
     document.head.appendChild(canonicalEl);
   }
-  canonicalEl.setAttribute('href', `https://syntellum.si${meta.path === '/404' ? '/' : meta.path}`);
+  canonicalEl.setAttribute('href', canonicalUrl);
+
+  // 7. Dynamic Per-Route Schema.org JSON-LD (Breadcrumbs + Service/WebPage)
+  const routeLdId = 'route-structured-data';
+  let scriptEl = document.getElementById(routeLdId) as HTMLScriptElement | null;
+  if (meta.noindex) {
+    if (scriptEl) scriptEl.remove();
+  } else {
+    if (!scriptEl) {
+      scriptEl = document.createElement('script');
+      scriptEl.id = routeLdId;
+      scriptEl.type = 'application/ld+json';
+      document.head.appendChild(scriptEl);
+    }
+    scriptEl.textContent = JSON.stringify(buildRouteJsonLd(meta, origin, canonicalUrl));
+  }
 }
