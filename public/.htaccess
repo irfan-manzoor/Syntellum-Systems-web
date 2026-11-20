@@ -1,0 +1,58 @@
+# ==============================================================================
+# Syntellum Systems - Apache / LiteSpeed Production Configuration (.htaccess)
+# Designed for Hostinger Premium Shared Hosting
+# ==============================================================================
+
+RewriteEngine On
+
+# 1. Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Force Canonical Non-WWW (syntellum.si)
+RewriteCond %{HTTP_HOST} ^www\.syntellum\.si$ [NC]
+RewriteRule ^(.*)$ https://syntellum.si/$1 [L,R=301]
+
+# 3. Allow Direct Access to PHP Endpoint and Existing Static Files/Directories
+RewriteCond %{REQUEST_URI} ^/contact\.php$ [NC]
+RewriteRule ^contact\.php$ - [L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 4. SPA Fallback to index.html for Clean Routes
+RewriteRule ^ index.html [L]
+
+# ==============================================================================
+# Security Headers
+# ==============================================================================
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# ==============================================================================
+# Browser Caching & Performance
+# ==============================================================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    
+    # HTML must always revalidate
+    ExpiresByType text/html "access plus 0 seconds"
+    
+    # CSS and JavaScript (fingerprinted assets)
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    
+    # Media and Fonts
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>

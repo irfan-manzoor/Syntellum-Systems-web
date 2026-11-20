@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="6" fill="#07090e" />
+  <!-- Orbitron geometric S shape -->
+  <path d="M23 7H9C7.89543 7 7 7.89543 7 9V14C7 15.1046 7.89543 16 9 16H23C24.1046 16 25 16.8954 25 18V23C25 24.1046 24.1046 25 23 25H9" stroke="#5ce1e6" stroke-width="3" stroke-linecap="square" />
+  <circle cx="23" cy="7" r="1.5" fill="#ffffff" />
+  <circle cx="9" cy="25" r="1.5" fill="#ffffff" />
+</svg>

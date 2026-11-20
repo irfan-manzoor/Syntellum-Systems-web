@@ -1,0 +1,155 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-orbitron: 'Orbitron', -apple-system, sans-serif;
+    
+    --bg-canvas: #050A12;
+    --bg-surface: #091321;
+    --bg-elevated: #101D2C;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(93, 217, 232, 0.3);
+    --text-primary: #F2F7FB;
+    --text-secondary: #A6B6C6;
+    --text-muted: #6F879B;
+    --accent-cyan: #5DD9E8;
+    --accent-blue: #438CFF;
+    --accent-steel: #7897B3;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Restrained hairline dividers */
+.hairline-b {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.hairline-t {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.hairline-x {
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #07090e;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* =========================================================================
+   SUBTLE CSS-BASED CRT HUD SCANLINE OVERLAY
+   ========================================================================= */
+.crt-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  user-select: none;
+  overflow: hidden;
+}
+
+.crt-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.12) 3px,
+    rgba(0, 0, 0, 0.12) 4px
+  );
+  opacity: 0.25;
+  mix-blend-mode: multiply;
+}
+
+/* Subtle, whisper-quiet electronic phosphor HUD sweep */
+.crt-glow-sweep {
+  position: absolute;
+  top: -40%;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    rgba(93, 217, 232, 0) 0%,
+    rgba(93, 217, 232, 0.012) 50%,
+    rgba(93, 217, 232, 0) 100%
+  );
+  animation: crtSweep 16s linear infinite;
+}
+
+@keyframes crtSweep {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(350%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crt-glow-sweep {
+    animation: none;
+    display: none;
+  }
+}
+
+/* =========================================================================
+   HUD MAIN SECTION CONTAINER & BACKDROP FILTER AESTHETIC
+   ========================================================================= */
+section {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.hud-panel,
+.main-section-container,
+[class*="bg-[#091321]"],
+[class*="bg-[#101D2C]"] {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* =========================================================================
+   CUSTOM HUD MAGNETIC CURSOR RULE
+   ========================================================================= */
+@media (hover: hover) and (pointer: fine) {
+  body, a, button, input, select, textarea, [role="button"] {
+    cursor: none !important;
+  }
+}
+
+
+
+
