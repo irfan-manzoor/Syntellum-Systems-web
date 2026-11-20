@@ -35,7 +35,10 @@ export function HomePage() {
       {/* =========================================================================
           SECTION 1 — HERO: INTELLIGENCE ARCHITECTURE
           ========================================================================= */}
-      <section className="relative min-h-[90vh] flex items-center border-b border-white/10 backdrop-blur-[12px] overflow-hidden bg-[#050A12]">
+      <section
+        data-hero-section="true"
+        className="relative min-h-[90vh] flex items-center border-b border-white/10 backdrop-blur-[12px] overflow-hidden bg-[#050A12]"
+      >
         {/* Layer 1: Ethereal Photographic Architectural Backdrop */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <img
